@@ -4,3 +4,8 @@ Para ejecutar el proyecto es necesario seguir estos pasos:
 2) activarse el entorno virtual creado en el paso: .\nombre\Scripts\activate  
 3) clonarse el repositorio: git clone https://github.com/prueba-api-con-back-y-react/prueba-django-conf-BBDD-mysql.git
 4) instalarse los requerimientos: cd prueba   pip install -r requirements.txt
+
+Las credenciales para el admin son: 
+
+usuario: root
+password: root
