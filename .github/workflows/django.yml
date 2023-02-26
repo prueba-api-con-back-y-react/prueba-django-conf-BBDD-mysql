@@ -11,8 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      MYSQL_ROOT_USER: root
-      MYSQL_DB: backdjango
+      MYSQL_USER: pruebaMySQL
+      MYSQL_DB: pruebaMySQL$backdjango
       MYSQL_ROOT_PASSWORD: Ruben_sua00
     services:
       mysql:
@@ -20,7 +20,7 @@ jobs:
         env:
           MYSQL_DATABASE: pruebaMySQL$backdjango
           MYSQL_USER: pruebaMySQL
-          MYSQL_ROOT_PASSWORD: Ruben_sua00
+          MYSQL_PASSWORD: Ruben_sua00
         ports:
           - 3306:3306
         options: >-
@@ -49,7 +49,7 @@ jobs:
         
     - name: Debug
       run: |
-        mysql --host=127.0.0.1 --user=${{ env.MYSQL_USER }} --password=${{ env.MYSQL_PASSWORD }} ${{ env.MYSQL_DB }} 
+        mysql --host=pruebaMySQL.mysql.pythonanywhere-services.com --user=${{ env.MYSQL_USER }} --password=${{ env.MYSQL_PASSWORD }} ${{ env.MYSQL_DB }} 
     
     - name: Run migrations (unnecessary)
       run: |
