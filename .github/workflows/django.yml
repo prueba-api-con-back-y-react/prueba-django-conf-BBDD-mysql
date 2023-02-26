@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MYSQL_USER: pruebaMySQL
-      MYSQL_DB: pruebaMySQL$backdjango
+      MYSQL_DB: prueba
       MYSQL_PASSWORD: Ruben_sua00
       MYSQL_ROOT_PASSWORD: Ruben_sua00
     services:
