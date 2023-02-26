@@ -13,14 +13,16 @@ jobs:
     env:
       MYSQL_USER: pruebaMySQL
       MYSQL_DB: pruebaMySQL$backdjango
+      MYSQL_PASSWORD: Ruben_sua00
       MYSQL_ROOT_PASSWORD: Ruben_sua00
     services:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_DATABASE: pruebaMySQL$backdjango
-          MYSQL_USER: pruebaMySQL
-          MYSQL_PASSWORD: Ruben_sua00
+          MYSQL_ROOT_PASSWORD: ${{ env.MYSQL_ROOT_PASSWORD }}
+          MYSQL_DATABASE: ${{ env.MYSQL_DB }}
+          MYSQL_USER: ${{ env.MYSQL_USER }}
+          MYSQL_PASSWORD: ${{ env.MYSQL_PASSWORD }}
         ports:
           - 3306:3306
         options: >-
