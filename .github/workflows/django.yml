@@ -11,9 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      MYSQL_USER: pruebaMySQL
-      MYSQL_DB: prueba
-      MYSQL_PASSWORD: Ruben_sua00
+      MYSQL_ROOT_USER: root
+      MYSQL_DB: backdjango
       MYSQL_ROOT_PASSWORD: Ruben_sua00
     services:
       mysql:
@@ -21,7 +20,6 @@ jobs:
         env:
           MYSQL_DATABASE: pruebaMySQL$backdjango
           MYSQL_USER: pruebaMySQL
-          MYSQL_PASSWORD: Ruben_sua00
           MYSQL_ROOT_PASSWORD: Ruben_sua00
         ports:
           - 3306:3306
