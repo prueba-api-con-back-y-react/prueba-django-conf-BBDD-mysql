@@ -16,17 +16,17 @@ class PersonView(View):
             persons = list(Person.objects.filter(id=id).values())
             if len(persons) > 0:
                 person = persons[0]
-                datos = {'message': "Success", 'person': person}
+                datos = {'person': person}
             else:
                 datos = {'message': "person not found..."}
-            return JsonResponse(datos)
+            return JsonResponse(person, safe = False)
         else:
             persons = list(Person.objects.values())
             if len(persons) > 0:
-                datos = {'message': "Success", 'persons': persons}
+                datos = {'persons': persons}
             else:
                 datos = {'message': "persons not found..."}
-            return JsonResponse(datos)
+            return JsonResponse(persons, safe = False)
 
     def post(self, request):
         # print(request.body)

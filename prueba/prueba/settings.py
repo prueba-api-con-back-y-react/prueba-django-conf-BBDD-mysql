@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%78=f@xq8gd6=s5(hjbi-#l-d^yln=ujjjl9mn161n^0s=$_e_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['pruebaMySQL.pythonanywhere.com']
 
 
 # Application definition
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,16 +50,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 #PARA CONFIGURACIÓN DE CONECTIVIDAD FRONT/BACK
 
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost',
-    'http://localhost:3000',
-)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://localhost",
+]
 
 ROOT_URLCONF = 'prueba.urls'
 
@@ -94,10 +93,10 @@ WSGI_APPLICATION = 'prueba.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'backdjango',
-        'USER': 'root',
+        'NAME': 'pruebaMySQL$backdjango',
+        'USER': 'pruebaMySQL',
         'PASSWORD': 'Ruben_sua00',
-        'HOST': 'localhost',
+        'HOST': 'pruebaMySQL.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
@@ -137,7 +136,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = "home/pruebaMySQL/prueba-django-conf-BBDD-mysql/prueba/app/static"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
