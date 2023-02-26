@@ -24,31 +24,35 @@ jobs:
         ports: ['3306:3306']
 
     steps:
-        - uses: actions/checkout@v3
-    
-        - name: Set up Python ${{ matrix.python-version }}
-          uses: actions/setup-python@v3
-          with:
-            python-version: ${{ matrix.python-version }}
-            
-        - name: Install Dependencies
-          run: |
-            python -m pip install --upgrade pip
-            cd prueba
-            pip install -r requirements.txt
-            
-        - name: Run Migrations
-          run: |
-            cd prueba
-            python manage.py migrate
-          env: 
-            DBENGINE: django.db.backends.mysql
-            DBNAME: pruebaMySQL$backdjango
-            DBUSER: pruebaMySQL
-            DBPASSWORD: Ruben_sua00
-            DBHOST: pruebaMySQL.mysql.pythonanywhere-services.com
-            DBPORT: 3306
-        
-        - name: Run Tests
-          run: |
-            python manage.py test
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        cd prueba
+        pip install -r requirements.txt
+    - name: Run Migrations
+      run: |
+        cd prueba
+        python manage.py migrate
+      env: 
+        DBENGINE: django.db.backends.mysql
+        DBNAME: pruebaMySQL$backdjango
+        DBUSER: pruebaMySQL
+        DBPASSWORD: Ruben_sua00
+        DBHOST: pruebaMySQL.mysql.pythonanywhere-services.com
+        DBPORT: ${{ job.services.mysql.ports[3306] }}
+    - name: Run Tests
+      run: |
+        cd prueba
+        python manage.py test
+      env: 
+        DBENGINE: django.db.backends.mysql
+        DBNAME: pruebaMySQL$backdjango
+        DBUSER: pruebaMySQL
+        DBPASSWORD: Ruben_sua00
+        DBHOST: pruebaMySQL.mysql.pythonanywhere-services.com
+        DBPORT: ${{ job.services.mysql.ports[3306] }}
