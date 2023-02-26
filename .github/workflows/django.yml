@@ -22,5 +22,5 @@ jobs:
       run: |
         sudo apt-get install -y mysql-client
         sudo service mysql start
-        mysql -uroot -pRuben_sua00
+        mysql -u root -p
         mysql --host localhost --port 3306 -uroot -pRuben_sua00 -e "SHOW DATABASES"
