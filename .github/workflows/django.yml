@@ -33,7 +33,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.10.7, 3.10.9]
+        python-version: [3.10.9]
 
     steps:
     - uses: actions/checkout@v3
@@ -55,7 +55,7 @@ jobs:
     
     - name: Run migrations (unnecessary)
       run: |
-        cd aiding
+        cd prueba
         python manage.py makemigrations
         python manage.py migrate
     
