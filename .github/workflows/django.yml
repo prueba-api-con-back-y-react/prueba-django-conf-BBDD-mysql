@@ -14,6 +14,7 @@ jobs:
       MYSQL_USER: pruebaMySQL
       MYSQL_DB: pruebaMySQL$backdjango
       MYSQL_PASSWORD: Ruben_sua00
+      MYSQL_ROOT_PASSWORD: Ruben_sua00
     services:
       mysql:
         image: mysql:8.0
@@ -21,6 +22,7 @@ jobs:
           MYSQL_DATABASE: pruebaMySQL$backdjango
           MYSQL_USER: pruebaMySQL
           MYSQL_PASSWORD: Ruben_sua00
+          MYSQL_ROOT_PASSWORD: Ruben_sua00
         ports:
           - 3306:3306
         options: >-
