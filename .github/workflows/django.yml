@@ -48,10 +48,6 @@ jobs:
         python -m pip install --upgrade pip
         cd prueba
         pip install -r requirements.txt
-        
-    - name: Debug
-      run: |
-        mysql --host=pruebaMySQL.mysql.pythonanywhere-services.com --user=${{ env.MYSQL_USER }} --password=${{ env.MYSQL_PASSWORD }} ${{ env.MYSQL_DB }} 
     
     - name: Run migrations (unnecessary)
       run: |
