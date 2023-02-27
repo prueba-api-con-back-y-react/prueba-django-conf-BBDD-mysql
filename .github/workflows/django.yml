@@ -51,7 +51,7 @@ jobs:
         
     - name: Run migrations (unnecessary)
       run: |
-        cd aiding
+        cd prueba
         python manage.py makemigrations
         python manage.py migrate
     
