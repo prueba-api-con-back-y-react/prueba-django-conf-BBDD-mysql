@@ -5,10 +5,10 @@ jobs:
   debug:
     runs-on: ubuntu-latest
     env:
-      MYSQL_USER: root
+      MYSQL_USER: user
       MYSQL_DB: test
-      MYSQL_PASSWORD: Ruben_sua00
-      MYSQL_ROOT_PASSWORD: Ruben_sua00
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: user
     services:
       mysql:
         image: mysql:8.0
