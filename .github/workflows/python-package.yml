@@ -15,10 +15,12 @@ jobs:
         with:
           host: ${{ secrets.VPS_SSH_HOST }}
           username: ${{ secrets.VPS_SSH_USER }}
-          password: ${{ secrets.VPS_SSH_KEY }}
+          key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{secrets.VPS_SSH_PORT}}
           script: |
             rm -rf prueba-django-conf-BBDD-mysql/
             git clone https://github.com/prueba-api-con-back-y-react/prueba-django-conf-BBDD-mysql.git
             cd prueba/
-            python manage.py test
+            git pull ${{secrets.REPO_URL}}
+            docker-compose down 
+            docker-compose up --build -d
