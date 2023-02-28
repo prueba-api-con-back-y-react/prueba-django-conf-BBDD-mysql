@@ -22,5 +22,3 @@ jobs:
             git clone https://github.com/prueba-api-con-back-y-react/prueba-django-conf-BBDD-mysql.git
             cd prueba/
             python manage.py test
-            
-            
